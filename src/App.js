@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import './scss/main.scss';
+import FamousMountains from './components/Famous_mountains';
+import KoreanTourist from './components/KoreanTourist';
+import WorldTravel from './components/WorldTravel';
+import Movies from './components/Movies';
+import Masterpiece from './components/Masterpiece';
 
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Database 입력하기</h1>
+      <div className='inner'>
+        <FamousMountains />
+        <KoreanTourist />
+        <WorldTravel />
+        <Movies />
+        <Masterpiece />
+      </div>
     </div>
   );
 }

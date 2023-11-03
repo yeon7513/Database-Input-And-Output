@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+# Database Input And Output
+------------
+* 데이터베이스를 연동하여 데이터 입력, 출력을 합니다.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+## 프로젝트 소개
+------------
+* 리액트로 제작하여 데이터를 저장 및 불러오는 기능을 합니다.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 제작 기간
+------------
+* 2023.10.31 ~ 2023.11.03
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### 사용 방법
+------------
+1. mySQL/createDB&tables.sql을 실행하여 데이터베이스와 테이블을 만들어 줍니다.
+2. server/config/mysql.js 파일에서 데이터베이스를 생성한 아이디와 비밀번호를 입력합니다.
+```
+    host: "localhost", 
+    user: "root", 👉🏻 아이디 입력
+    password: "0000", 👉🏻 비밀번호 입력
+    database: "top100"
+```
+3. 터미널 2개 열어서 한쪽은 cd server 입력 후 node server.js 명령어를 실행하여 서버를 실행합니다.
+4. 다른 터미널은 npm start로 리액트를 실행합니다.
+5. 데이터를 입력하고 '등록하기' 버튼을 누르면 해당하는 table에 데이터가 입력되어있습니다.
+6. '데이터 조회' 버튼을 누르면 해당하는 table의 목록이 나옵니다.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### 주의점
+------------
+* 아직 완전한 구성이 아니라 좀 부족할 수 있습니다.
+  * 데이터 조회를 누르고 다른 table의 데이터 조회를 누르면 겹치는 현상이 있습니다.
+  * 이미지 삽입은 테스트를 안해봐서 잘 될지 모르겠습니다.
+  * 이미지 삽입을 하지 않으면 Null이 전달되어 'No Image'가 출력되어야 하는데, img태그의 alt속성이 표시되는 문제가 있습니다.

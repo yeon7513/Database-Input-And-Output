@@ -1,0 +1,312 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* reset */
+* {margin: 0; padding: 0;}
+li {list-style-type: none;}
+a {text-decoration: none; color: inherit;}
+body {font-family: 'Pretendard-Regular', 'Noto Sans KR', sans-serif; color: #333;}
+
+/* colors */
+$main-color: #6A9C89;
+$accent-color: #CD5C08;
+$sub-color: #C1D8C3;
+$bg-color: #F5E8B7;
+
+/* mixin */
+@mixin center() {
+  text-align: center;
+  margin: 0 auto;
+}
+@mixin title() {
+  margin-bottom: 20px;
+  padding: 3px;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  background-image: linear-gradient(rgba(206, 94, 9, 0) 0%, rgba(206, 94, 9, 0) 50%, rgba(206, 94, 9, 0.5) 51%, rgba(206, 94, 9, 0.5) 100%);
+}
+@mixin label() {
+  display: flex;
+  align-items: center;
+  margin: 10px 5px;
+}
+@mixin input() {
+  margin-left: 10px;
+  padding: 5px;
+  outline: 1px solid $main-color;
+  border: none;
+  border-radius: 5px;
+  &:focus {
+    outline: 2px solid $main-color;
+    border: none;
+  }
+}
+@mixin button() {
+  margin: 5px;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  transition: .5s;
+}
+@mixin submit() {
+  background-color: $main-color;
+  color: $sub-color;
+  &:hover {
+    background-color: $accent-color;
+    color: #fff;
+  }
+}
+@mixin reset() {
+  border: 1px solid $sub-color;
+  border-color: $sub-color;
+  color: $main-color;
+  background-color: transparent;
+  box-sizing: border-box;
+  &:hover {
+    border-color: $main-color;
+  }
+}
+@mixin checkBtn() {
+  border: 1px solid $main-color;
+  background-color: transparent;
+  color: $main-color;
+  &:hover {
+    border: 1px solid $accent-color;
+    color: $accent-color;
+  }
+}
+@mixin tables() {
+  position: absolute;
+  top: 0; right: 0;
+  width: 580px;
+}
+
+/* common */
+html {
+  background-color: $bg-color;
+}
+.inner {
+  width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+form {
+  width: 580px;
+  margin: 20px 0;
+  padding: 20px;
+  background-color: rgba(255,255,255,0.3);
+  border-radius: 20px;
+  box-shadow: 0 5px 0px 3px rgba(255,255,255,0.5);
+  box-sizing: border-box;
+}
+
+/* layout */
+
+/* title */
+.App {
+  h1 {
+    @include center;
+    padding: 20px 0;
+    border-bottom: 1px dashed #6A9C89;
+  }
+}
+/* success message */
+.success {
+  margin-left: 10px;
+  font-size: 14px;
+}
+/* common input */
+input[type=submit] {
+  @include button();
+  @include submit();
+}
+input[type=reset] {
+  @include button();
+  @include reset();
+}
+/* common button */
+button {
+  @include button();
+  @include checkBtn();
+}
+/* show tables */
+.showTables {
+  position: absolute;
+  top: 0; right: 0;
+  z-index: 10;
+  width: 580px;
+  button {
+    @include button();
+    @include checkBtn();
+    margin: 0 0 10px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid $main-color;
+    font-size: 14px;
+    box-sizing: border-box;
+    thead {
+      tr {
+        th {
+          padding: 10px;
+          border: 1px solid $main-color;
+          background-color: $sub-color;
+          font-weight: bold;
+        }
+      }
+    }
+    tbody {
+      tr {
+        td {
+          padding: 10px;
+          border: 1px dashed $sub-color;
+
+        }
+        td:first-of-type {
+          width: 20px;
+          text-align: right;
+        }
+      }
+    }
+  }
+}
+
+/* form */
+#famous-mountains {
+  .title {
+    width: 120px;
+    @include title();
+  }
+  label{
+    @include label();
+    span {
+      display: inline-block;
+      width: 50px;
+    }
+    #region {
+      @include input();
+    }
+    #mt_name {
+      @include input();
+    }
+    #AMSL {
+      @include input();
+    }
+  }
+} 
+#korean-tourist {
+  .title {
+    width: 150px;
+    @include title();
+  }
+  label {
+    @include label();
+    span {
+      display: inline-block;
+      width: 50px;
+    }
+    #spot {
+      @include input();
+    }
+    #addr {
+      @include input();
+    }
+    #keyword {
+      @include input();
+    }
+  }
+}
+#world-travel {
+  .title {
+    width: 330px;
+    @include title();
+  }
+  label {
+    @include label();
+    span {
+      display: inline-block;
+      width: 80px;
+    }
+    #destination {
+      @include input();
+    }
+    #country {
+      @include input();
+    }
+    #img {
+      display: inline-block;
+    }
+    #img_src {
+      @include input();
+    }
+  }
+}
+#movies {
+  .title {
+    width: 120px;
+    @include title();
+  }
+  label {
+    @include label();
+    &:nth-of-type(3) {
+      align-items: start;
+    }
+    span {
+      display: inline-block;
+      width: 70px;
+    }
+    #title {
+      @include input();
+    }
+    #title_en {
+      @include input();
+    }
+    #summary {
+      @include input();
+    }
+    #production_year {
+      @include input();
+    }
+    #director {
+      @include input();
+    }
+    #country {
+      @include input();
+    }
+  }
+}
+#masterpiece {
+  .title {
+    width: 120px;
+    @include title();
+  }
+  label {
+    @include label();
+    &:nth-of-type(3) {
+      align-items: start;
+    }
+    span {
+      display: inline-block;
+      width: 50px;
+    }
+    #book_name {
+      @include input();
+    }
+    #author {
+      @include input();
+    }
+    #summary {
+      @include input();
+    }
+  }
+}
+
